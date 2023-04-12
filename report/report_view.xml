@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+
+        <!-- <report
+            id="cetak_sesi"
+            string="Report"
+            model="training.pemesanan"
+            report_type="qweb-pdf"
+            file="pesan_atk.laporan_pemesanan"
+            name="pesan_atk.laporan_pemesanan"
+        /> -->
+    </data>
+</odoo>

@@ -1,0 +1,19 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="reject_wizard_form_view">
+            <field name="name">training.pemesanan.wizard.reject.form</field>
+            <field name="model">training.pemesanan</field>
+            <field name="arch" type="xml">
+                <form string="Reject Pemesanan">
+                    <group>
+                        <field name="justification" widget="text"/>
+                    </group>
+                    <footer>
+                        <button string="Submit" name="action_reject" type="object" class="btn-primary"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

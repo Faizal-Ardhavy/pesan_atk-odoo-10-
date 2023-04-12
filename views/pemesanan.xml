@@ -1,0 +1,79 @@
+<odoo>
+
+    <data>
+
+        <record model="ir.ui.view" id="pemesanan_tree_view">
+            <field name="name">training.pemesanan.tree</field>
+            <field name="model">training.pemesanan</field>
+            <field name="arch" type="xml">
+                <tree string="List Pemesanan">
+                    <field name="name" />
+                    <field name="create_uid"/>
+                    <field name="jenis" widget="integer" type="char"/>
+                    <field name="jumlah" widget="integer" type="char"/>
+                    <field name="total" widget="integer" type="char"/>
+                    <field name="state"/>       
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="pemesanan_form_view">
+            <field name="name">training.pemesanan.form</field>
+            <field name="model">training.pemesanan</field>
+            <field name="arch" type="xml">
+                <form string="Form Pemesanan">
+                    <header>
+                        <button name="action_confirm" type="object" string="Confirm" states="draft" class="btn-primary"/>
+                        <button name="action_cancel" type="object" string="Cancel" states="open"/>
+                        <button name="action_close" type="object" string="Approve" states="open" class="btn-primary" groups = 'pesan_atk.group_training_admin'/>
+                        <button name="submit_reject" type="object" string="Reject" states="open" class="btn-primary" groups = 'pesan_atk.group_training_admin'/>
+                        <button name="action_confirm" type="object" string="Cancel" states="reject" groups = 'pesan_atk.group_training_user'/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,open,done,reject"/>
+                    </header>
+                    <group string="Pesan ATK">
+                        <field name="name" />
+                        <field name="total" />
+                    </group>
+                    <group>
+                        <field name='campuran' nolabel="1">
+                            <tree editable="true">
+                                <field name="atk_ids"/>
+                                <field name="jumlah" widget="integer" type="char"/>
+                                <field name="limit"/>
+                            </tree>
+                            
+                        </field>
+                    </group>
+                    <group class = "oe_read_only">
+                        <field name="justification" readonly = "1"/>
+                    </group>
+
+                    <group String = "Audit Trail" colspan = "4" class = "oe_read_only">
+
+                        <group col = "2">
+                            <field name = "create_uid" readonly = "1"/>
+                            <field name = "create_date" readonly = "1"/>
+                        </group>
+                        
+                        <group col = "2">
+                            <field name = "write_uid" readonly = "1"/>
+                            <field name = "write_date" readonly = "1"/>
+                        </group>
+                    </group>
+
+                    
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="pemesanan_action">
+            <field name="name">Pemesanan ATK</field>
+            <field name="res_model">training.pemesanan</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="pemesanan_menu" name="Pemesanan" parent="main_training_odoo_menu" action="pemesanan_action" />
+
+    </data>
+</odoo>

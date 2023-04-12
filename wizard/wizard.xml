@@ -1,0 +1,37 @@
+<odoo>
+    <data>
+        <record id="wizard_form_view_menu" model="ir.ui.view">
+            <field name="name">report.wizard.form</field>
+            <field name="model">report.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Report Wizard">
+                    <group>
+                        <field name="state" />
+                        <field name="start_date" />
+                        <field name="end_date" />
+                    </group>
+                    <footer>
+                        <button name="generate_report" string="Generate Report" type="object"
+                            class="btn-primary" />
+                        <button string="Cancel" class="btn-secondary" special="cancel" />
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+
+        <!-- Membuat action wizard dari menu item -->
+
+        <act_window id="sesi_wizard_menu_action"
+            name="Tambah Peserta"
+            res_model="report.wizard"
+            view_mode="form"
+            view_id="wizard_form_view_menu"
+            target="new" />
+
+
+        <!-- ### Membuat Sub Menu Wizard ### -->
+        <menuitem id="report_xlss" name="Laporan Excel" parent="main_training_odoo_menu" action="sesi_wizard_menu_action" groups = 'pesan_atk.group_training_admin' />
+
+    </data>
+</odoo>

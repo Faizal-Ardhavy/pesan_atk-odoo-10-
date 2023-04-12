@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+     
+     
+<template id="laporan_pemesanan">
+    <t t-call="report.html_container">
+        <t t-foreach="docs" t-as="o">
+            <t t-call="report.external_layout">
+                <div class="page">
+                     
+                    <!-- JUDUL REPORT-->
+                     
+                    <h2 class="text-center">LAPORAN PEMESANAN</h2>
+         
+                    <!-- INFORMASI HEADER -->
+                     
+                    <table class="table">
+                        <tr>
+                            <td><strong>Nama Divisi:</strong></td>
+                            <td><span t-field="o.name"/></td>
+                            <td><strong>Total Harga:</strong></td>
+                            <td><span t-field="o.total"/></td>
+                        </tr>
+                    </table>
+                     
+         
+                     
+                    <table class="table table-bordered" style="table-layout:auto">
+                        <thead>
+                            <tr>
+                                <th class="text-center">Nama Produk</th>
+                                <th class="text-center">Jumlah</th>
+                            </tr>
+                       </thead>
+                       <tbody>
+                            <t t-foreach="o.campuran" t-as="l">
+                                <tr>
+                                    <td><span t-field="l.atk_ids"/></td>
+                                    <td><span t-field="l.jumlah"/></td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+         
+                </div>
+            </t>
+        </t>
+    </t>
+</template>
+ 
+</odoo>

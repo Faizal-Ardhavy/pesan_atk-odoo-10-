@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+    <record model = "ir.module.category" id = "kategori_module">
+        <field name = "name"> Pemesanan ATK </field>
+        <field name = "description"> Katagori untuk pemesanan ATK </field>
+        <field name = "sequence"> 50 </field>
+    </record>
+
+    <record id="group_training_user" model="res.groups">
+        <field name="name">USER</field>
+        <field name = "category_id" ref = "kategori_module"/>
+    </record>
+
+    <record id="group_training_admin" model="res.groups">
+        <field name="name">ADMIN</field>
+        <field name = "category_id" ref = "kategori_module"/>
+    </record>
+
+
+    <record id="group_training_user_pemesanan_read" model="res.groups">
+        <field name="name">User pemesanan read</field>
+        <field name = "category_id" ref = "kategori_module"/>
+        <field name="menu_access" eval="[(4, ref('pesan_atk.pemesanan_menu'))]"/>
+    </record>
+
+    <record id="group_training_user_pemesanan_access_read" model="ir.model.access">
+        <field name="model_id" ref="model_training_pemesanan"/>
+        <field name="name">User Rule pemesanan read</field>
+        <field name="group_id" ref="group_training_user_pemesanan_read"/>
+        <field name="perm_read">1</field>
+    </record>
+
+    <record id="group_training_user_pemesanan_write" model="res.groups">
+        <field name="name">User pemesanan write </field>
+        <field name = "category_id" ref = "kategori_module"/>
+        <field name="menu_access" eval="[(4, ref('pesan_atk.pemesanan_menu'))]"/>
+    </record>
+
+    <record id="group_training_user_pemesanan_access_write" model="ir.model.access">
+        <field name="model_id" ref="model_training_pemesanan"/>
+        <field name="name">User Rule pemesanan write</field>
+        <field name="group_id" ref="group_training_user_pemesanan_write"/>
+        <field name="perm_write">1</field>
+    </record>
+
+    <record id="group_training_user_pemesanan_create" model="res.groups">
+        <field name="name">User pemesanan create</field>
+        <field name = "category_id" ref = "kategori_module"/>
+        <field name="menu_access" eval="[(4, ref('pesan_atk.pemesanan_menu'))]"/>
+    </record>
+
+    <record id="group_training_user_pemesanan_access_create" model="ir.model.access">
+        <field name="model_id" ref="model_training_pemesanan"/>
+        <field name="name">User Rule pemesanan create</field>
+        <field name="group_id" ref="group_training_user_pemesanan_create"/>
+        <field name="perm_create">1</field>
+    </record>
+
+    <record id="group_training_user_pemesanan_unlink" model="res.groups">
+        <field name="name">User pemesanan unlink</field>
+        <field name = "category_id" ref = "kategori_module"/>
+        <field name="menu_access" eval="[(4, ref('pesan_atk.pemesanan_menu'))]"/>
+    </record>
+
+    <record id="group_training_user_pemesanan_access_unlink" model="ir.model.access">
+        <field name="model_id" ref="model_training_pemesanan"/>
+        <field name="name">User Rule pemesanan unlink</field>
+        <field name="group_id" ref="group_training_user_pemesanan_unlink"/>
+        <field name="perm_unlink">1</field>
+    </record>
+
+    <record id="group_training_user_atk_create" model="res.groups">
+        <field name="name">User atk create</field>
+        <field name = "category_id" ref = "kategori_module"/>
+        <field name="menu_access" eval="[(4, ref('pesan_atk.training_odoo_menu'))]"/>
+    </record>
+
+    <record id="group_training_user_atk_access_create" model="ir.model.access">
+        <field name="model_id" ref="model_training_atk"/>
+        <field name="name">User Rule atk create</field>
+        <field name="group_id" ref="group_training_user_atk_create"/>
+        <field name="perm_create">1</field>
+    </record>
+
+    <record id="group_training_user_atk_write" model="res.groups">
+        <field name="name">User atk write</field>
+        <field name = "category_id" ref = "kategori_module"/>
+        <field name="menu_access" eval="[(4, ref('pesan_atk.training_odoo_menu'))]"/>
+    </record>
+
+    <record id="group_training_user_atk_access_write" model="ir.model.access">
+        <field name="model_id" ref="model_training_atk"/>
+        <field name="name">User Rule atk write</field>
+        <field name="group_id" ref="group_training_user_atk_write"/>
+        <field name="perm_write">1</field>
+    </record>
+
+    <record id="group_training_user_atk_read" model="res.groups">
+        <field name="name">User atk read</field>
+        <field name = "category_id" ref = "kategori_module"/>
+        <field name="menu_access" eval="[(4, ref('pesan_atk.training_odoo_menu'))]"/>
+    </record>
+
+    <record id="group_training_user_atk_access_read" model="ir.model.access">
+        <field name="model_id" ref="model_training_atk"/>
+        <field name="name">User Rule atk read</field>
+        <field name="group_id" ref="group_training_user_atk_read"/>
+        <field name="perm_read">1</field>
+    </record>
+
+    
+    <record id="group_training_user_atk_unlink" model="res.groups">
+        <field name="name">User atk unlink</field>
+        <field name = "category_id" ref = "kategori_module"/>
+        <field name="menu_access" eval="[(4, ref('pesan_atk.training_odoo_menu'))]"/>
+    </record>
+
+    <record id="group_training_user_atk_access_unlink" model="ir.model.access">
+        <field name="model_id" ref="model_training_atk"/>
+        <field name="name">User Rule atk unlink</field>
+        <field name="group_id" ref="group_training_user_atk_unlink"/>
+        <field name="perm_unlink">1</field>
+    </record>
+    
+
+    <record id="group_training_user_campuran_read" model="res.groups">
+        <field name="name">User campuran read</field>
+        <field name = "category_id" ref = "kategori_module"/>
+        <field name="menu_access" eval="[(4, ref('pesan_atk.pemesanan_menu'))]"/>
+    </record>
+
+    <record id="group_training_user_campuran_access_read" model="ir.model.access">
+        <field name="model_id" ref="model_campuran"/>
+        <field name="name">User Rule campuran read</field>
+        <field name="group_id" ref="group_training_user_campuran_read"/>
+        <field name="perm_read">1</field>
+    </record>
+
+    <record id="group_training_user_campuran_create" model="res.groups">
+        <field name="name">User campuran create</field>
+        <field name = "category_id" ref = "kategori_module"/>
+        <field name="menu_access" eval="[(4, ref('pesan_atk.pemesanan_menu'))]"/>
+    </record>
+
+    <record id="group_training_user_campuran_access_create" model="ir.model.access">
+        <field name="model_id" ref="model_campuran"/>
+        <field name="name">User Rule campuran create</field>
+        <field name="group_id" ref="group_training_user_campuran_create"/>
+        <field name="perm_create">1</field>
+    </record>
+
+    <record id="group_training_user_campuran_write" model="res.groups">
+        <field name="name">User campuran write</field>
+        <field name = "category_id" ref = "kategori_module"/>
+        <field name="menu_access" eval="[(4, ref('pesan_atk.pemesanan_menu'))]"/>
+    </record>
+
+    <record id="group_training_user_campuran_access_write" model="ir.model.access">
+        <field name="model_id" ref="model_campuran"/>
+        <field name="name">User Rule campuran write</field>
+        <field name="group_id" ref="group_training_user_campuran_write"/>
+        <field name="perm_write">1</field>
+    </record>
+
+    <record id="group_training_user_campuran_unlink" model="res.groups">
+        <field name="name">User campuran unlink</field>
+        <field name = "category_id" ref = "kategori_module"/>
+        <field name="menu_access" eval="[(4, ref('pesan_atk.pemesanan_menu'))]"/>
+    </record>
+
+    <record id="group_training_user_campuran_access_unlink" model="ir.model.access">
+        <field name="model_id" ref="model_campuran"/>
+        <field name="name">User Rule campuran unlink</field>
+        <field name="group_id" ref="group_training_user_campuran_unlink"/>
+        <field name="perm_unlink">1</field>
+    </record>
+
+    <record id="group_training_user_button" model="res.groups">
+        <field name="name">User Button</field>
+        <field name = "category_id" ref = "kategori_module"/>
+    </record>
+
+    <record id="group_training_user_menu" model="res.groups">
+        <field name="name">User Menu Master Unread</field>
+        <field name = "category_id" ref = "kategori_module"/>
+        <field name="menu_access" eval="[(4, ref('training_odoo_menu'))]"/>
+    </record>
+
+    <record id="pemesanan_see_own_rule" model="ir.rule">
+        <field name="name">Own Pemesanan</field>
+        <field name="model_id" ref="model_training_pemesanan"/>
+        <field name="domain_force">['|',('create_uid','=',user.id),('create_uid','=',False)]</field>
+        <field name="groups" eval="[(4, ref('group_training_user'))]"/>
+    </record>
+
+</odoo>
